@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="AppNavigation3.Views.LoginPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <Grid
+        RowSpacing="0"
+        ColumnSpacing="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+
+        <BoxView 
+            Grid.Row="0"
+            BackgroundColor="#00CCD6" />
+
+        <Image
+            Grid.Row="0"
+            Source="Bruno.png"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            HeightRequest="100"
+            WidthRequest="100" />
+
+        <Label 
+            Grid.Row="1"
+            Text="Decod Sistemas"
+            FontSize="Large"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+
+        <StackLayout                
+            Grid.Row="2"
+            VerticalOptions="Fill"
+            HorizontalOptions="Center"
+            Spacing="15">
+
+            <StackLayout HorizontalOptions="Center" Spacing="5">
+                <Label 
+                    Text="Usuário:" />
+                <Entry 
+                    Text="{ Binding Usuario }" 
+                    WidthRequest="300" />
+            </StackLayout>
+
+            <StackLayout HorizontalOptions="Center" Spacing="5">
+                <Label 
+                    Text="Senha:" />
+                <Entry 
+                    Text="{ Binding Senha }"
+                    WidthRequest="300"
+                    IsPassword="True" />
+            </StackLayout>
+        </StackLayout>
+
+
+        <Button
+            Grid.Row="2"
+            Text="Acessar"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="15,10"
+            Command="{ Binding LoginCommand }" />
+
+       
+    </Grid>
+
+
+</ContentPage>
